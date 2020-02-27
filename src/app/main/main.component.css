@@ -1,0 +1,92 @@
+/*header*/
+.main-header{
+  display: flex;
+  background-color: #474D59;
+  padding: 20px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logoWithText{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main-logo{
+  width: 40px;
+  height: 40px;
+}
+
+p{
+  color: white;
+  font-size: 18px;
+  margin: 0 0 0 10px;
+}
+
+/*body*/
+.main-body{
+  padding: 30px 20px;
+  background-color: #F2F3F5;
+}
+
+.lastReleases{
+  margin: 0 10px;
+  color: #474D59;
+  font-weight: bold;
+}
+
+.postersList{
+  display: flex;
+  margin: 15px 5px 0px 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.posterItem {
+  width: 18%;
+  margin: 0 5px 15px 0;
+  justify-content: flex-start;
+  box-shadow: 3px 5px 10px #474D59;
+}
+
+@media screen and (max-width: 768px) {
+  .posterItem {
+    width: 45%;
+    margin: 0 5px 15px 0;
+    justify-content: flex-start;
+    box-shadow: 3px 5px 10px #474D59;
+  }
+}
+
+.posterItem img{
+  width: 100%;
+}
+
+/*pagination*/
+.main-paginator{
+  background-color: transparent;
+  padding-top: 20px;
+}
+
+ngb-pagination /deep/ .page-item.active .page-link {
+  background-color: transparent;
+  font-weight: bold;
+  color: green;
+}
+
+ngb-pagination /deep/ .page-item .page-link {
+  background-color: transparent;
+  color: black;
+}
+
+ngb-pagination /deep/ .page-item.disabled .page-link {
+  background-color: transparent;
+  color: gray;
+}
+
+
+
+
+
+
