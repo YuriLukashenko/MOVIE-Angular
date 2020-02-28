@@ -1,0 +1,28 @@
+<!--<div class="container">-->
+<!--  <h1>detail works!</h1>-->
+<!--  <h2>{{poster.id}}</h2>-->
+<!--  <h2>{{poster.name}}</h2>-->
+
+<!--</div>-->
+<div class="container-fluid">
+  <div class="bg-image" [ngStyle]="{'background-image': 'url(' + poster?.fullBackgroundPath + ')'}"></div>
+
+  <div class="text-area">
+    <div class="row justify-content-between nav-header">
+      <button class="btn btn-primary" [routerLink]="'/'">Back to list</button>
+      <button class="btn btn-primary" [routerLink]="'/'">Next Movie</button>
+    </div>
+    <div class="row justify-content-center detail-body">
+      <div class="col-lg-3">
+        <img src="{{ poster.fullImagePath }}">
+      </div>
+      <div class="col-lg-7">
+        <div class="row">
+          <h1>{{poster.name}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

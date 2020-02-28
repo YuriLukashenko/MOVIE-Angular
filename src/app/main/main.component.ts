@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/services/movies.service';
-import { NowPlaying } from '../models/movies';
-
-export interface Poster {
-  fullImagePath: string;
-  id: number;
-  name: string;
-}
+import { NowPlaying } from '../shared/INow-playing.response';
+import { Poster } from '../shared/IPoster.model';
+import { SessionStateService } from '../services/session-state.service';
 
 @Component({
   selector: 'app-main',
@@ -16,7 +12,7 @@ export interface Poster {
 })
 export class MainComponent implements OnInit {
 
-  constructor(private moviesService: MoviesService) {
+  constructor(private moviesService: MoviesService, private sessionStateService: SessionStateService) {
   }
 
   nowPlaying: NowPlaying;
@@ -35,13 +31,14 @@ export class MainComponent implements OnInit {
       posterView.id = movie.id;
       posterView.name = movie.title;
       posterView.fullImagePath = 'http://image.tmdb.org/t/p/w342' + movie.poster_path;
+      posterView.fullBackgroundPath = 'http://image.tmdb.org/t/p/w500' + movie.backdrop_path;
       this.posters.push(posterView);
     });
   }
 
   ngOnInit() {
     this.pageSize = this.moviesService.pageSize;
-    this.page = 1;
+    this.page = this.moviesService.startPage;
     this.maxSize = this.isSmallMobileDevice.matches ? 1 : 3;
     this.isBoundaryLinks = !this.isSmallMobileDevice.matches;
 
@@ -57,5 +54,9 @@ export class MainComponent implements OnInit {
   onResize(event) {
     this.maxSize = this.isSmallMobileDevice.matches ? 1 : 3;
     this.isBoundaryLinks = !this.isSmallMobileDevice.matches;
+  }
+
+  onPosterSelected(poster: Poster) {
+    this.sessionStateService.setCurrentPoster(poster);
   }
 }

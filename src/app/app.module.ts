@@ -5,19 +5,24 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailComponent } from './detail/detail.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { SessionStateService } from './services/session-state.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [SessionStateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,7 +20,10 @@
     <label class="lastReleases">Latest Releases</label>
     <div class="postersList">
       <div class="posterItem" *ngFor="let poster of posters">
-        <img src="{{poster.fullImagePath}}" ngbTooltip="{{poster.name}}">
+        <img src="{{poster.fullImagePath}}"
+             ngbTooltip="{{poster.name}}"
+             [routerLink]="'/details'"
+             (click)="onPosterSelected(poster)">
       </div>
     </div>
     <ngb-pagination [collectionSize]="nowPlaying?.total_results"

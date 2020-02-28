@@ -1,0 +1,26 @@
+.bg-image{
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 1000px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(15px);
+}
+
+.text-area{
+  z-index: 2;
+}
+
+.nav-header{
+  padding: 20px;
+}
+
+.detail-body{
+  padding-top: 50px;
+}
+
+h1{
+  color: mintcream;
+}
