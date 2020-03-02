@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DetailComponent } from './detail/detail.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SessionStateService } from './services/session-state.service';
+import { MoviesService } from './services/movies.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { SessionStateService } from './services/session-state.service';
     NgbModule,
     AppRoutingModule
   ],
-  providers: [SessionStateService],
+  providers: [SessionStateService, MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

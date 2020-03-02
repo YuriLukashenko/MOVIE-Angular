@@ -27,11 +27,13 @@
       </div>
     </div>
     <ngb-pagination [collectionSize]="nowPlaying?.total_results"
+                    *ngIf="nowPlaying?.total_results"
                     [pageSize]="pageSize"
                     [boundaryLinks]="isBoundaryLinks"
                     [maxSize]="maxSize"
                     [(page)]="page"
                     (pageChange)="onPageChange($event)"
+                    id="pagination"
                     class="d-flex justify-content-center main-paginator">
       <ng-template ngbPaginationFirst>First</ng-template>
       <ng-template ngbPaginationLast>Last</ng-template>

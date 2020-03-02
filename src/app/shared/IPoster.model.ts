@@ -3,4 +3,9 @@ export interface Poster {
   fullBackgroundPath: string;
   id: number;
   name: string;
+  score: number;
+  rating: string;
+  release_date: Date;
+  overview: string;
+  positionOfIteration: number;
 }
