@@ -9,6 +9,7 @@
   filter: blur(20px);
 }
 
+
 .text-area{
   z-index: 2;
 }
@@ -17,16 +18,100 @@
   padding: 20px;
 }
 
-.detail-body{
-  padding-top: 50px;
+.leftArrowCircle {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border: 0.25em solid mintcream;
+  border-radius: 50%;
 }
 
-h1, h2, h3, h4, h5, h6{
+.leftArrow {
+  content: '';
+  display: inline-block;
+  margin-top: 0.7em;
+  margin-left: 0.7em;
+  width: 0.7em;
+  height: 0.7em;
+  border-top: 0.25em solid mintcream;
+  border-right: 0.25em solid mintcream;
+  transform: rotate(-135deg);
+}
+
+.rightArrowCircle {
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border: 0.25em solid mintcream;
+  border-radius: 50%;
+}
+
+.rightArrow {
+  content: '';
+  display: inline-block;
+  margin-top: 0.7em;
+  margin-left: -0.7em;
+  width: 0.7em;
+  height: 0.7em;
+  border-top: 0.25em solid mintcream;
+  border-right: 0.25em solid mintcream;
+  transform: rotate(45deg);
+}
+
+button{
+  outline:none;
+}
+
+.btn-backToList{
+  padding: 20px 30px;
+}
+
+.txt-gap{
+  margin-left: 3em;
+}
+
+
+h1, h2, h3, h4, h5, h6, span, p, div{
   color: mintcream;
+}
+
+.text-align-justify{
+ text-align: justify;
 }
 
 .vertical-line{
   border-left: 1px solid gray;
 }
+
+.detail-body{
+  padding-top: 50px;
+}
+
+.posterImage{
+  width: 25%;
+  justify-content: flex-start;
+}
+
+.posterImage img{
+  max-width: 100%;
+}
+
+.borderFavorite{
+  border: 2px solid mintcream;
+  color: mintcream;
+  font-size: 48px;
+  padding: 0;
+  margin: 0;
+}
+
+.starImg{
+  width: 40px;
+  height: 40px;
+}
+
+.mtop{
+  margin-top: 15px;
+}
+
 
 

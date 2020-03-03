@@ -1,28 +1,34 @@
-<!--<div class="container">-->
-<!--  <h1>detail works!</h1>-->
-<!--  <h2>{{poster.id}}</h2>-->
-<!--  <h2>{{poster.name}}</h2>-->
-
-<!--</div>-->
-<div class="container-fluid">
+<div class="container-fluid p-0 m-0">
   <div class="bg-image" [ngStyle]="{'background-image': 'url(' + poster?.fullBackgroundPath  + ')'}"></div>
-
+  <app-header class="d-none d-md-block"></app-header>
   <div class="text-area">
-    <div class="row justify-content-between nav-header">
-      <button class="btn btn-primary" [routerLink]="'/'">Back to list</button>
-      <button class="btn btn-primary" (click)="nextMovie()">Next Movie</button>
+    <div class="row p-0 m-0 justify-content-between nav-header">
+      <button class="bg-transparent border-0 btn-backToList d-flex align-items-start" [routerLink]="'/'">
+        <span class="position-absolute leftArrowCircle d-none d-md-block"></span>
+        <span class="position-absolute leftArrow"></span>
+        <span class="txt-gap"></span>
+        <span class="font-weight-bold">Back</span>
+        <span class="font-weight-bold d-none d-md-block">&nbsp;to list</span>
+      </button>
+      <button class="bg-transparent border-0 btn-backToList d-flex justify-content-end" (click)="nextMovie()">
+        <span class="font-weight-bold">Next</span>
+        <span class="font-weight-bold d-none d-md-block">&nbsp;Movie</span>
+        <span class="txt-gap"></span>
+        <span class="position-absolute rightArrowCircle d-none d-md-block"></span>
+        <span class="position-absolute rightArrow"></span>
+      </button>
     </div>
-    <div class="row justify-content-center detail-body">
-      <div class="col-lg-3">
+    <div class="row p-0 m-0 detail-body justify-content-center">
+      <div class="col col-md-4 col-lg-3 posterImage">
         <img src="{{ poster.fullImagePath }}">
       </div>
-      <div class="col-lg-7">
+      <div class="col col-md-6 col-lg-7 d-none d-md-block">
         <div class="d-flex justify-content-end">
           <button class="btn btn-secondary">Add to favorite</button>
         </div>
         <h1>{{poster.name}}</h1>
-        <div class="row">
-          <div class="col-lg-3">
+        <div class="row p-0 m-0 ">
+          <div class="col-lg-3 vertical-line">
             <h4>Score: {{poster.score}}</h4>
           </div>
           <div class="col-lg-3 vertical-line">
@@ -32,10 +38,37 @@
             <h4>Release Date: {{poster.release_date | date}}</h4>
           </div>
         </div>
-        <hr>
+        <hr color="gray">
         <h6>{{poster.overview}}</h6>
-        <hr>
+        <hr color="gray">
       </div>
+      <div class="col d-md-none">
+        <div class="d-flex d-row flex-shrink-1">
+          <div class="d-flex flex-column">
+            <div >Score:</div>
+            <div class="font-weight-bold">{{poster.score}}</div>
+          </div>
+          <div class="d-flex col justify-content-end">
+            <button class="bg-transparent border-0">
+              <img src="assets/star.png" class="borderFavorite starImg">
+            </button>
+          </div>
+        </div>
+        <div class="mtop">
+          <div >Rating:</div>
+          <div class="font-weight-bold">{{poster.rating}}</div>
+        </div>
+        <div class="mtop">
+          <div>Release Date:</div>
+          <div class="font-weight-bold">{{poster.release_date | date}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="m-3 d-md-none">
+      <h1>{{poster.name}}</h1>
+      <hr color="gray">
+      <h6 class="text-wrap text-align-justify">{{poster.overview}}</h6>
+      <hr color="gray">
     </div>
   </div>
 </div>

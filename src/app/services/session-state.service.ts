@@ -29,7 +29,6 @@ export class SessionStateService {
   }
 
   getNextPoster() {
-
     if (this.poster.positionOfIteration === this.moviesService.pageSize) {
       this.page++;
       this.moviesService.getNowPlayingMoviesBy(this.page)

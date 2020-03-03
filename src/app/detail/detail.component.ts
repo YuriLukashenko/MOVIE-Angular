@@ -18,6 +18,13 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.poster = this.sessionStateService.getCurrentPoster();
+
+    // for test (random view)
+    // this.moviesService.getNowPlayingMoviesBy(Math.floor(Math.random() * 57))
+    //   .subscribe((data: NowPlaying) => {
+    //     this.moviesService.convertNowPlayingToPosters(data);
+    //     this.poster = this.moviesService.getPosters()[Math.floor(Math.random() * 20)];
+    //   });
   }
 
   nextMovie() {

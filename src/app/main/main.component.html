@@ -1,21 +1,5 @@
-<div class="container-fluid p-0" (window:resize)="onResize($event)">
-  <div class="main-header">
-    <section class="logoWithText">
-      <img src="assets/movie_icon.png" class="main-logo">
-      <p>Movies</p>
-    </section>
-    <div class="dropdown">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="d-none d-sm-inline-block">My Account</span>
-      </button>
-      <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="#">Profile</a>
-        <a class="dropdown-item" href="#">Settings</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Log out</a>
-      </div>
-    </div>
-  </div>
+<div class="container-fluid p-0 m-0" (window:resize)="onResize($event)">
+  <app-header></app-header>
   <div class="d-flex flex-column main-body">
     <label class="lastReleases">Latest Releases</label>
     <div class="postersList">

@@ -9,13 +9,15 @@ import { DetailComponent } from './detail/detail.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { SessionStateService } from './services/session-state.service';
 import { MoviesService } from './services/movies.service';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    DetailComponent
+    DetailComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
