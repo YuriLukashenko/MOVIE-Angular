@@ -8,4 +8,5 @@ export interface Poster {
   release_date: Date;
   overview: string;
   positionOfIteration: number;
+  isFavorite: boolean;
 }

@@ -4,6 +4,7 @@ import {Poster} from '../shared/IPoster.model';
 import {SessionStateService} from '../services/session-state.service';
 import {NowPlaying} from '../shared/INow-playing.response';
 import {MoviesService} from '../services/movies.service';
+import {FavoriteService} from '../services/favorite.service';
 
 @Component({
   selector: 'app-detail',
@@ -11,10 +12,13 @@ import {MoviesService} from '../services/movies.service';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
+
   poster: Poster;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
-              private sessionStateService: SessionStateService, private  moviesService: MoviesService) { }
+              private sessionStateService: SessionStateService,
+              private moviesService: MoviesService,
+              private favoriteService: FavoriteService) { }
 
   ngOnInit(): void {
     this.poster = this.sessionStateService.getCurrentPoster();
@@ -43,5 +47,10 @@ export class DetailComponent implements OnInit {
       } else {
         this.poster = this.moviesService.getPosters().find(p => p.positionOfIteration === this.poster.positionOfIteration + 1);
       }
+  }
+
+  onFavoriteClick() {
+    this.poster.isFavorite = true;
+    this.favoriteService.addToLocalStorage(this.poster);
   }
 }

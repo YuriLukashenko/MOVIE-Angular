@@ -75,10 +75,6 @@ h1, h2, h3, h4, h5, h6, span, p, div{
   color: mintcream;
 }
 
-.text-align-justify{
- text-align: justify;
-}
-
 .vertical-line{
   border-left: 1px solid gray;
 }
@@ -99,9 +95,6 @@ h1, h2, h3, h4, h5, h6, span, p, div{
 .borderFavorite{
   border: 2px solid mintcream;
   color: mintcream;
-  font-size: 48px;
-  padding: 0;
-  margin: 0;
 }
 
 .starImg{
@@ -109,9 +102,17 @@ h1, h2, h3, h4, h5, h6, span, p, div{
   height: 40px;
 }
 
+.star-filtered{
+  /*light-pink*/
+  /*filter: invert(15%) sepia(96%) saturate(3992%) hue-rotate(275deg) brightness(107%) contrast(136%);*/
+
+  filter: invert(0%) sepia(11%) saturate(7496%) hue-rotate(51deg) brightness(107%) contrast(95%);
+}
+
 .mtop{
   margin-top: 15px;
 }
+
 
 
 

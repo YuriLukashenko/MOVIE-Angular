@@ -1,0 +1,18 @@
+<div class="container-fluid p-0 m-0">
+  <app-header></app-header>
+  <div class="d-flex flex-column favorite-body">
+    <label class="myFavorite">My favorite</label>
+    <div class="d-flex flex-row" *ngFor="let poster of posters">
+      <div class="col col-lg-2 posterImage">
+        <img src="{{ poster.fullImagePath }}">
+      </div>
+      <div class="col col-lg-10">
+        <div class="row p-0 m-0 justify-content-between posterTitle">
+          <h2 class="font-weight-bold"> {{ poster.name }}</h2>
+          <button class="btn btn-secondary" (click)="onUnfavoriteClick(poster.id)">Unfavorite</button>
+        </div>
+        <h4 class="text-wrap text-align-justify posterOverview"> {{ poster.overview }}</h4>
+      </div>
+    </div>
+  </div>
+</div>

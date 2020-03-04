@@ -1,0 +1,27 @@
+.favorite-body{
+  padding: 30px 20px;
+  background-color: #F2F3F5;
+}
+
+.myFavorite{
+  margin: 0 10px;
+  color: #474D59;
+  font-weight: bold;
+}
+
+.posterImage{
+  width: 20%;
+  padding: 10px;
+}
+
+.posterTitle{
+  padding-top: 10px;
+}
+
+.posterOverview{
+  padding-top: 20px;
+}
+
+.posterImage img{
+  width: 100%;
+}

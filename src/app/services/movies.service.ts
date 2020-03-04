@@ -3,10 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {Movie} from '../shared/IMovie.responce';
 import {Poster} from '../shared/IPoster.model';
 import {NowPlaying} from '../shared/INow-playing.response';
+import {FavoriteService} from './favorite.service';
 
 @Injectable()
 export class MoviesService {
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private favoriteService: FavoriteService) {
   }
   APIKey = 'ebea8cfca72fdff8d2624ad7bbf78e4c';
   pageSize = 20;
@@ -53,6 +54,7 @@ export class MoviesService {
     posterView.rating = movie.adult ? 'R' : 'G';
     posterView.release_date = new Date(movie.release_date);
     posterView.overview = movie.overview;
+    posterView.isFavorite = this.favoriteService.isExistsInLocalStorage(movie.id);
     return posterView;
   }
 }

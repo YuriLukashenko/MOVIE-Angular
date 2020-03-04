@@ -43,6 +43,7 @@ export class MainComponent implements OnInit {
         this.moviesService.convertNowPlayingToPosters(data);
         this.nowPlaying = this.moviesService.getNowPlaying();
         this.posters = this.moviesService.getPosters();
+        this.sessionStateService.setCurrentPage(pageNumber);
       });
   }
 

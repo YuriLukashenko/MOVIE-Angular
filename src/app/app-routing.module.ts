@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import { MainComponent } from './app/main/main.component';
-import { DetailComponent } from './app/detail/detail.component';
+import { MainComponent } from './main/main.component';
+import { DetailComponent } from './detail/detail.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'details', component: DetailComponent }
+  { path: 'details', component: DetailComponent },
+  { path: 'favorite', component: FavoriteComponent }
 ];
 
 @NgModule({

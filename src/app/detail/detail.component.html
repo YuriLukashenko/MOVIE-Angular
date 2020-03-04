@@ -24,7 +24,8 @@
       </div>
       <div class="col col-md-6 col-lg-7 d-none d-md-block">
         <div class="d-flex justify-content-end">
-          <button class="btn btn-secondary">Add to favorite</button>
+          <button class="bg-transparent btn borderFavorite" [disabled]="poster.isFavorite" (click)="onFavoriteClick()" [innerHTML]="poster.isFavorite | appFavoriteText">
+          </button>
         </div>
         <h1>{{poster.name}}</h1>
         <div class="row p-0 m-0 ">
@@ -49,13 +50,13 @@
             <div class="font-weight-bold">{{poster.score}}</div>
           </div>
           <div class="d-flex col justify-content-end">
-            <button class="bg-transparent border-0">
-              <img src="assets/star.png" class="borderFavorite starImg">
+            <button class="bg-transparent border-0" [disabled]="poster.isFavorite" (click)="onFavoriteClick()">
+              <img src="assets/star.png" class="borderFavorite starImg" [ngClass]="poster.isFavorite ? 'star-filtered': 'starImg'">
             </button>
           </div>
         </div>
         <div class="mtop">
-          <div >Rating:</div>
+          <div>Rating:</div>
           <div class="font-weight-bold">{{poster.rating}}</div>
         </div>
         <div class="mtop">
