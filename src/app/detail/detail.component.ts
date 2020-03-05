@@ -49,7 +49,6 @@ export class DetailComponent implements OnInit {
   }
 
   nextMovieForEntireList() {
-    const posters = this.moviesService.getPosters();
     let page = this.sessionStateService.getCurrentPage();
 
     // if it the last movie of page

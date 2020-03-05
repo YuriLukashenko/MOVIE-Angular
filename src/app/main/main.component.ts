@@ -3,7 +3,6 @@ import {MoviesService} from 'src/app/services/movies.service';
 import {NowPlaying} from '../shared/INow-playing.response';
 import {Poster} from '../shared/IPoster.model';
 import {SessionStateService} from '../services/session-state.service';
-import {Movie} from '../shared/IMovie.responce';
 import {RoutePagesEnum} from '../shared/routePages.emun';
 
 @Component({

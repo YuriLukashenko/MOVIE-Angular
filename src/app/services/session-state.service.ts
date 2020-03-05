@@ -38,21 +38,4 @@ export class SessionStateService {
   setPreviousRoutePage(routePage: RoutePagesEnum){
     this.prevRoutePage = routePage;
   }
-
-  getNextPoster() {
-    if (this.poster.positionOfIteration === this.moviesService.pageSize) {
-      this.pageNum++;
-      this.moviesService.getNowPlayingMoviesBy(this.pageNum)
-        .subscribe((data: NowPlaying) => {
-          this.moviesService.convertNowPlayingToPosters(data);
-          this.posters = this.moviesService.getPosters();
-          this.poster = this.posters[0];
-          return this.poster;
-        });
-    } else {
-      this.poster = this.posters.find(p => p.positionOfIteration === this.poster.positionOfIteration + 1);
-      return this.poster;
-    }
-  }
-
 }

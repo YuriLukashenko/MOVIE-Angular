@@ -1,4 +1,4 @@
-/*body*/
+/*main*/
 .main-body{
   padding: 30px 20px;
   background-color: #F2F3F5;
@@ -11,24 +11,22 @@
 }
 
 .postersList{
+  margin: 15px 5px 0 10px;
   display: flex;
-  margin: 15px 5px 0px 10px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.posterItem {
-  width: 18%;
+.posterItem{
+  width: 18.5%;
   margin: 0 5px 15px 0;
-  justify-content: flex-start;
   box-shadow: 3px 5px 10px #474D59;
 }
 
 @media screen and (max-width: 768px) {
   .posterItem {
-    width: 45%;
+    width: 46%;
     margin: 0 5px 15px 0;
-    justify-content: flex-start;
     box-shadow: 3px 5px 10px #474D59;
   }
 }

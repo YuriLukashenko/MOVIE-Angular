@@ -23,5 +23,12 @@
 }
 
 .posterImage img{
-  width: 100%;
+  width: 90%;
+}
+
+.unfavorite-btn{
+  color: #474D59;
+  border: 2px solid #474D59;
+  background: transparent;
+  font-weight: bold;
 }

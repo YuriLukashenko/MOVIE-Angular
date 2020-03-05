@@ -9,11 +9,6 @@
   filter: blur(20px);
 }
 
-
-.text-area{
-  z-index: 2;
-}
-
 .nav-header{
   padding: 20px;
 }
@@ -69,7 +64,6 @@ button{
 .txt-gap{
   margin-left: 3em;
 }
-
 
 h1, h2, h3, h4, h5, h6, span, p, div{
   color: mintcream;

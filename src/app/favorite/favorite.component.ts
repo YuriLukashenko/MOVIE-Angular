@@ -17,7 +17,6 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() {
     this.posters = this.favoriteService.getPostersFromLocalStorage();
-    console.log(this.posters);
   }
 
   onUnfavoriteClick(id: number) {
