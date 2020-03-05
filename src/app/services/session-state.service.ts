@@ -2,14 +2,17 @@ import {Injectable} from '@angular/core';
 import {Poster} from '../shared/IPoster.model';
 import {MoviesService} from './movies.service';
 import {NowPlaying} from '../shared/INow-playing.response';
+import {RoutePagesEnum} from '../shared/routePages.emun';
 
 @Injectable()
 export class SessionStateService {
   posters: Poster[];
   poster: Poster;
-  page = 1;
+  pageNum = 1;
+  prevRoutePage: RoutePagesEnum;
 
   constructor(private moviesService: MoviesService) {
+    this.prevRoutePage = RoutePagesEnum.main;
   }
 
   getCurrentPoster() {
@@ -21,17 +24,25 @@ export class SessionStateService {
   }
 
   setCurrentPage(page: number) {
-    this.page = page;
+    this.pageNum = page;
   }
 
   getCurrentPage() {
-    return this.page;
+    return this.pageNum;
+  }
+
+  getPreviousRoutePage() {
+    return this.prevRoutePage;
+  }
+
+  setPreviousRoutePage(routePage: RoutePagesEnum){
+    this.prevRoutePage = routePage;
   }
 
   getNextPoster() {
     if (this.poster.positionOfIteration === this.moviesService.pageSize) {
-      this.page++;
-      this.moviesService.getNowPlayingMoviesBy(this.page)
+      this.pageNum++;
+      this.moviesService.getNowPlayingMoviesBy(this.pageNum)
         .subscribe((data: NowPlaying) => {
           this.moviesService.convertNowPlayingToPosters(data);
           this.posters = this.moviesService.getPosters();

@@ -45,4 +45,19 @@ export class FavoriteService {
     }
     this.setPostersToLocalStorage(posters);
   }
+
+  getPosterIndex(id: number) {
+    const posters: Poster[] = this.getPostersFromLocalStorage();
+    const index = posters.findIndex(p => p.id === id);
+    return index;
+  }
+
+  getNextPoster(index: number) {
+    const posters: Poster[] = this.getPostersFromLocalStorage();
+    if (index === (posters.length - 1)) {
+      return posters[0];
+    } else {
+      return posters[index + 1];
+    }
+  }
 }

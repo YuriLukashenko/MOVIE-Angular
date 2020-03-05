@@ -4,7 +4,9 @@
     <label class="myFavorite">My favorite</label>
     <div class="d-flex flex-row" *ngFor="let poster of posters">
       <div class="col col-lg-2 posterImage">
-        <img src="{{ poster.fullImagePath }}">
+        <img src="{{ poster.fullImagePath }}"
+             [routerLink]="'/details'"
+             (click)="onPosterSelected(poster)">
       </div>
       <div class="col col-lg-10">
         <div class="row p-0 m-0 justify-content-between posterTitle">

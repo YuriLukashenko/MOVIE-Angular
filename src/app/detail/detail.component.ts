@@ -5,6 +5,7 @@ import {SessionStateService} from '../services/session-state.service';
 import {NowPlaying} from '../shared/INow-playing.response';
 import {MoviesService} from '../services/movies.service';
 import {FavoriteService} from '../services/favorite.service';
+import {RoutePagesEnum} from '../shared/routePages.emun';
 
 @Component({
   selector: 'app-detail',
@@ -14,6 +15,7 @@ import {FavoriteService} from '../services/favorite.service';
 export class DetailComponent implements OnInit {
 
   poster: Poster;
+  prevPage: RoutePagesEnum;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
               private sessionStateService: SessionStateService,
@@ -32,6 +34,21 @@ export class DetailComponent implements OnInit {
   }
 
   nextMovie() {
+    this.prevPage = this.sessionStateService.getPreviousRoutePage();
+    switch (this.prevPage) {
+      case RoutePagesEnum.main:
+        this.nextMovieForEntireList();
+        break;
+      case RoutePagesEnum.details:
+        break;
+      case RoutePagesEnum.favorite:
+        this.nextMovieForFavorites();
+        break;
+      default: break;
+    }
+  }
+
+  nextMovieForEntireList() {
     const posters = this.moviesService.getPosters();
     let page = this.sessionStateService.getCurrentPage();
 
@@ -43,10 +60,15 @@ export class DetailComponent implements OnInit {
         .subscribe((data: NowPlaying) => {
           this.moviesService.convertNowPlayingToPosters(data);
           this.poster = this.moviesService.getPosters()[0];
-          });
-      } else {
-        this.poster = this.moviesService.getPosters().find(p => p.positionOfIteration === this.poster.positionOfIteration + 1);
-      }
+        });
+    } else {
+      this.poster = this.moviesService.getPosters().find(p => p.positionOfIteration === this.poster.positionOfIteration + 1);
+    }
+  }
+
+  nextMovieForFavorites() {
+    const idx = this.favoriteService.getPosterIndex(this.poster.id);
+    this.poster = this.favoriteService.getNextPoster(idx);
   }
 
   onFavoriteClick() {
