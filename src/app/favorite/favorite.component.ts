@@ -12,11 +12,22 @@ import {RoutePagesEnum} from '../shared/routePages.emun';
 export class FavoriteComponent implements OnInit {
 
   posters: Poster[];
+  width: number;
+  lineClamp: number;
 
   constructor(private favoriteService: FavoriteService, private sessionStateService: SessionStateService) { }
 
   ngOnInit() {
     this.posters = this.favoriteService.getPostersFromLocalStorage();
+    this.width = window.innerWidth;
+    this.lineClamp = this.calculateLineClamp(this.width);
+  }
+
+  calculateLineClamp(width: number) {
+    if (width > 200) {
+      return Math.round( (width - 220) / 20);
+    }
+    return 0;
   }
 
   onUnfavoriteClick(id: number) {
@@ -27,5 +38,10 @@ export class FavoriteComponent implements OnInit {
   onPosterSelected(poster: Poster) {
     this.sessionStateService.setCurrentPoster(poster);
     this.sessionStateService.setPreviousRoutePage(RoutePagesEnum.favorite);
+  }
+
+  onResize(event) {
+    this.width = window.innerWidth;
+    this.lineClamp = this.calculateLineClamp(this.width);
   }
 }

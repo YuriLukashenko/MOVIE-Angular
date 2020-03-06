@@ -1,19 +1,19 @@
-<div>
+<div (window:resize)="onResize($event)">
   <app-header></app-header>
   <div class="d-flex flex-column favorite-body">
     <label class="myFavorite">My favorite</label>
     <div class="d-flex flex-row" *ngFor="let poster of posters">
-      <div class="col col-lg-3 posterImage">
+      <div class="col-md-6 col-lg-3 posterImage">
         <img src="{{ poster.fullImagePath }}"
              [routerLink]="'/details'"
              (click)="onPosterSelected(poster)">
       </div>
-      <div class="col col-lg-9">
-        <div class="row p-0 m-0 justify-content-between posterTitle">
-          <h2 class="font-weight-bold"> {{ poster.name }}</h2>
+      <div class="col-md-6 col-lg-9">
+        <div class="row p-0 m-0 posterTitle">
+          <div class="posterName"> {{ poster.name }}</div>
           <button class="btn unfavorite-btn" (click)="onUnfavoriteClick(poster.id)">Unfavorite</button>
         </div>
-        <h4 class="text-wrap text-align-justify posterOverview"> {{ poster.overview }}</h4>
+        <div class="posterOverview" [ngStyle]="{'-webkit-line-clamp': lineClamp}"> {{ poster.overview }}</div>
       </div>
     </div>
   </div>

@@ -1,9 +1,16 @@
 /*header*/
 .main-header{
+  display: flex;
   background-color: #474D59;
   padding: 20px 30px;
-  display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+.logoWithText{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .main-logo{
